@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout кода
+        uses: actions/checkout@v4
+
+      - name: Сборка Docker-образа
+        run: docker build -t student-converter:build .
